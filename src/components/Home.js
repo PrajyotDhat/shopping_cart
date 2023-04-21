@@ -1,21 +1,22 @@
 import React from 'react'
 
-function Home() {
+function Home(props) {
+    console.warn("home",props.data);
     return (
         <div>
-        <div className="">
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQoWwNcSmq3J1eI1YLTRTZnwxsBQMey1Rwxqw&usqp=CAU"/>
-        </div>
             <h1>Home Component</h1>
-            <div className="">
-                <div className="">
+            <div className="grid grid-cols-1">
+                <div className=" ">
                     <img src="https://img.freepik.com/free-psd/laptop-psd-mockup-with-gradient-led-light_53876-138283.jpg"/>
                 </div>
-                <div className="">
+                <div className="font-semibold">
                     <span>DELL</span>
                     <span>Price: $1000.0</span>
                     <div className="">
-                        <button>Add to Cart</button>
+                        <button className='bg-orange-500' onClick={()=>props.addToCartHandler({price:1000,name:'HP'})}>Add Cart</button>
+                    </div>
+                    <div className="">
+                        <button className='bg-green-500' onClick={()=>props.removeFromCartHandler()}>Remove Cart</button>
                     </div>
                 </div>
             </div>
